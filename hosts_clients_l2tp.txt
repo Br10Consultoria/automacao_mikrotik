@@ -1,0 +1,21 @@
+# Lista de clientes L2TP com seus IPs IPv4 para acesso de gerenciamento
+# Formato: IP_IPV4,HOSTNAME,METODO_CONEXAO
+#
+# IP_IPV4: Endereço IPv4 para conectar ao dispositivo
+# HOSTNAME: Nome do cliente (deve corresponder aos arquivos de mapeamento)
+# METODO_CONEXAO: SSH ou TELNET
+#
+# IMPORTANTE: Substitua os IPs de exemplo pelos IPs reais dos seus equipamentos
+#
+177.44.136.153,CAETITE,SSH
+# 177.155.144.109,ADUSTINA,SSH
+# 192.168.1.10,AGUA_FRIA,SSH
+# 192.168.1.11,CARINHANHA,SSH
+# 192.168.1.12,ENTRE_RIOS,SSH
+# 192.168.1.13,GUARATINGA,SSH
+# 192.168.1.14,IBIASSUCE,SSH
+# 192.168.1.15,IGAPORA,SSH
+# 192.168.1.16,RIACHO_DE_SANTANA,SSH
+# 192.168.1.17,ITAGIBA,SSH
+# 192.168.1.18,MALHADA,SSH
+# 192.168.1.19,RIO_DO_ANTONIO,SSH 

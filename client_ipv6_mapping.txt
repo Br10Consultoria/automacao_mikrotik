@@ -1,0 +1,22 @@
+# Mapeamento IPv6 para clientes L2TP
+# Usado pelos clientes para configurar interface bridge e rota default
+#
+# Formato: CLIENT_HOSTNAME,BRIDGE_INTERFACE,BRIDGE_IP,DEFAULT_GATEWAY
+#
+# CLIENT_HOSTNAME: Nome do cliente (corresponde ao hosts_clients_l2tp.txt)
+# BRIDGE_INTERFACE: Nome da interface bridge onde adicionar o IPv6
+# BRIDGE_IP: IP IPv6 para adicionar na bridge
+# DEFAULT_GATEWAY: Gateway para rota default ::/0
+#
+CAETITE,bridge,2804:385c:8700:15/126,2804:385c:8700:12
+ADUSTINA,bridge,2804:385c:8700:5/126,2804:385c:8700:2
+AGUA_FRIA,bridge,2804:385c:8700:d/126,2804:385c:8700:a
+CARINHANHA,bridge,2804:385c:8700:1d/126,2804:385c:8700:1a
+ENTRE_RIOS,bridge,2804:385c:8700:25/126,2804:385c:8700:22
+GUARATINGA,bridge,2804:385c:8700:2d/126,2804:385c:8700:2a
+IBIASSUCE,bridge,2804:385c:8700:35/126,2804:385c:8700:32
+IGAPORA,bridge,2804:385c:8700:3d/126,2804:385c:8700:3a
+RIACHO_DE_SANTANA,bridge,2804:385c:8700:45/126,2804:385c:8700:42
+ITAGIBA,bridge,2804:385c:8700:4d/126,2804:385c:8700:4a
+MALHADA,bridge,2804:385c:8700:55/126,2804:385c:8700:52
+RIO_DO_ANTONIO,bridge,2804:385c:8700:5d/126,2804:385c:8700:5a 

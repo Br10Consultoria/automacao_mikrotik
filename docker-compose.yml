@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  mikrotik-automation:
+    build: .
+    container_name: mikrotik-ipv6-automation
+    volumes:
+      # Mount configuration files
+      - ./hosts_clients_l2tp.txt:/app/hosts_clients_l2tp.txt:ro
+      - ./tunnel_mapping.txt:/app/tunnel_mapping.txt:ro
+      - ./client_ipv6_mapping.txt:/app/client_ipv6_mapping.txt:ro
+      - ./.env:/app/.env:ro
+      # Mount logs directory to persist logs
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - mikrotik-net
+    restart: unless-stopped
+    
+    # Execução agendada (roda a cada 24 horas)
+    command: |
+      sh -c "
+        while true; do
+          echo 'Running Mikrotik automation at $$(date)'
+          python mikrotik_l2tp_automation.py
+          echo 'Sleeping until next run...'
+          sleep 86400
+        done
+      "
+
+  # Interface web simples para visualizar logs
+  log-viewer:
+    image: nginx:alpine
+    container_name: mikrotik-logs
+    ports:
+      - "8087:80"
+    volumes:
+      - ./logs:/usr/share/nginx/html:ro
+    networks:
+      - mikrotik-net
+    depends_on:
+      - mikrotik-automation
+    command: |
+      sh -c "
+        echo 'server {
+          listen 80;
+          server_name localhost;
+          root /usr/share/nginx/html;
+          autoindex on;
+          autoindex_exact_size off;
+          autoindex_localtime on;
+          location ~* \.(log|txt)$$ {
+            add_header Content-Type text/plain;
+          }
+        }' > /etc/nginx/conf.d/default.conf &&
+        nginx -g 'daemon off;'
+      "
+
+networks:
+  mikrotik-net:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local 

@@ -1,0 +1,51 @@
+# Ignore development files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+.coverage
+.venv/
+venv/
+env/
+
+# Ignore sensitive files (these should be mounted as volumes)
+.env.local
+.env.production
+*.key
+*.pem
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tmp
+temp/
+
+# Ignore Git files
+.git/
+.gitignore
+README.md
+README_MODULAR.md
+*.md
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*.bak
+*.backup
+*.rsc
+
+# Docker files (no need to copy these into the image)
+Dockerfile
+docker-compose.yml
+.dockerignore 
